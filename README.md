@@ -1,2 +1,0 @@
-# CommandSpy
- TinyPixelDevz
