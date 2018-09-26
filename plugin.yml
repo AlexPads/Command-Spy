@@ -1,8 +1,0 @@
-name: TinySocialSpy
-api: [4.0.0, 3.0.0]
-version: 1.0.0-ALPHA
-main: AlexPads\SocialSpy\Main
-author: TinyPixel Devz
-description: Allows you to see commands. And messages of other players. 
-
-# Copyright TinyPixelDevz and imwood04 2018-2019 ©
