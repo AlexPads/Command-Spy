@@ -1,6 +1,6 @@
-name: SocialSpy
-api: [3.0.0-ALPHA12, 3.0.0]
-version: 1.0.0-BETA
+name: CommandSpy
+api: [3.0.0]
+version: 1.0.0-AlPHA1
 main: CommandSpy\TinyPixelDevz\AlexPads\Main
-author: VMPE Development Team
+author: TinyPixelDevz
 description: Allows you to see commands.
