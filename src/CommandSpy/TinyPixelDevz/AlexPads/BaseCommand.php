@@ -1,8 +1,11 @@
 <?php
+
 namespace CommandSpy\TinyPixelDevz\AlexPads;
+
 use pocketmine\command\Command;
 use pocketmine\command\PluginIdentifiableCommand;
 use CommandSpy\Main;
+
 abstract class BaseCommand extends Command implements PluginIdentifiableCommand {
     public $prefix = "§8[§aVM§8]§6 ";
 	private $plugin;
