@@ -1,5 +1,7 @@
 <?php
+
 namespace CommandSpy\TinyPixelDevz\AlexPads;
+
 use pocketmine\plugin\PluginBase;
 use pocketmine\event\Listener;
 use pocketmine\Player;
@@ -11,6 +13,7 @@ use pocketmine\event\player\PlayerChatEvent;
 use pocketmine\event\player\PlayerMoveEvent;
 use pocketmine\event\player\PlayerCommandPreprocessEvent;
 use CommandSpy\TinyPixelDevz\AlexPads\Commands\CommandSpy;
+
 class Main extends PluginBase implements Listener {
 	
 	public $prefix = "§8[§aSocialSpy§8]§6 ";
