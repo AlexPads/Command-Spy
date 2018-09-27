@@ -1,4 +1,4 @@
---- # Poggit-CI Manifest. Open the CI at https://poggit.pmmp.io/ci/benzodoesdev/SocialSpy
+--- # Poggit-CI Manifest. Open the CI at https://poggit.pmmp.io/ci/AlexPads/CommandSpy  and TinyPixel.ga
 branches:
 - master
 projects:
