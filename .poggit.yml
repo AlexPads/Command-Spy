@@ -2,5 +2,6 @@
 branches:
 - master
 projects:
+  CommandSpy:
     path: ""
 ...
