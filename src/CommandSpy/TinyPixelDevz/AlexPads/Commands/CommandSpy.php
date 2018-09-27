@@ -1,10 +1,13 @@
 <?php
+
 namespace CommandSpy\TinyPixelDevz\AlexPads\Commands;
+
 use pocketmine\command\CommandSender;
 use pocketmine\utils\TextFormat as Text;
 use pocketmine\Player;
 use CommandSpy\Main;
 use CommandSpy\TinyPixelDevz\AlexPads\BaseCommand;
+
 class CommandSpy extends BaseCommand {
 	public function __construct(Main $plugin){
         parent::__construct($plugin, "commandspy", "Spy on others commands!", "/commandspy", ['cmdspy']);
