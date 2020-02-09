@@ -1,4 +1,5 @@
---- # Poggit-CI Manifest. Open the CI at https://poggit.pmmp.io/ci/AlexPads/CommandSpy  and TinyPixel.ga
+--- # Poggit-CI Manifest. Open the CI at https://poggit.pmmp.io/ci/AlexPads/CommandSpy  and https://witherhosting.com/
+main: CommandSpy/TinyPixelDevz/AlexPads
 branches:
 - master
 projects:
