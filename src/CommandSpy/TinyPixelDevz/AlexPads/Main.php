@@ -3,6 +3,9 @@
 namespace CommandSpy\TinyPixelDevz\AlexPads;
 
 use pocketmine\plugin\PluginBase;
+use pocketmine\command\CommandSender;
+use pocketmine\command\Command;
+use pocketmine\Server;
 use pocketmine\event\Listener;
 use pocketmine\Player;
 use pocketmine\utils\TextFormat;
@@ -12,31 +15,51 @@ use pocketmine\event\entity\EntityDamageEvent;
 use pocketmine\event\player\PlayerChatEvent;
 use pocketmine\event\player\PlayerMoveEvent;
 use pocketmine\event\player\PlayerCommandPreprocessEvent;
-use CommandSpy\TinyPixelDevz\AlexPads\Commands\CommandSpy;
+use pocketmine\utils\TextFormat as C;
 
-class Main extends PluginBase implements Listener {
-	
-	public $prefix = "§8[§aSocialSpy§8]§6 ";
-	
-	public $commandspy = array();
-	
-	public function onEnable() {
-		$this->getServer()->getPluginManager()->registerEvents($this, $this);
-		$this->registerCommands();
-	}
-	private function registerCommands() {
-	        $map = $this->getServer()->getCommandMap();
-			$map->register("commandspy", new CommandSpy($this));
-	}
-    
-	/*
-	 * Spy on peoples commands...
-	 */
-    public function onCommandProcess(PlayerCommandPreprocessEvent $e){
-        foreach($this->getServer()->getOnlinePlayers() as $p){
-            if($this->hasCommandSpy($e->getPlayer())){
-                $p->sendMessage(TextFormat::YELLOW . TextFormat::ITALIC . $e->getPlayer()->getName() . ": /" . $e->getMessage());
-            }
+use function in_array;
+use function strtolower;
+use function array_search;
+
+class Main extends PluginBase {
+
+    public const PREFIX = "§7[§9SS§7]§6 >§r ";
+
+    public static $commandspy = [];
+
+    protected static $main;
+
+    public function onEnable() {
+        self::$main = $this;
+        $this->getServer()->getPluginManager()->registerEvents(new EventListener(), $this);
+    }
+
+    public static function getMain(): self {
+        return self::$main;
+    }
+
+    public function onCommand(CommandSender $sender, Command $cmd, string $label, array $args): bool {
+        $name = $sender->getName();
+        switch(strtolower($cmd->getName())) {
+            case "socialspy":
+            case "ss":
+                if (!$sender instanceof Player) {
+                    $sender->sendMessage(self::PREFIX . C::DARK_RED . "Use this command InGame.");
+                    return false;
+                }
         }
+        if(!$sender->hasPermission("socialspy.command")){
+            $sender->sendMessage(self::PREFIX . C::DARK_RED . "You do not have permission to use this command");
+            return false;
+        }
+
+        if(!in_array($name, self::$commandspy)) {
+            self::$commandspy[] = $name;
+            $sender->sendMessage(self::PREFIX . C::GREEN . "You have enabled SocialSpy");
+        }else{
+            unset(self::$commandspy[array_search($name, self::$commandspy)]);
+            $sender->sendMessage(self::PREFIX . C::DARK_RED . "You have disabled SocialSpy");
+        }
+        return true;
     }
 }
