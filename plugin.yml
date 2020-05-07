@@ -1,6 +1,16 @@
 name: CommandSpy
 api: [3.0.0]
-version: 1.0.0-AlPHA1
+version: 1.0.1
 main: CommandSpy\TinyPixelDevz\AlexPads\Main
 author: TinyPixelDevz
 description: Allows you to see commands.
+commands:
+  socialspy:
+    description: "Turn on socialspy"
+    permission: "socialspy.command"
+    aliases:
+      - ss
+permissions:
+  socialspy.command:
+    description: "Allow you to use socialspy command"
+    default: op
